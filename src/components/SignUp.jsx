@@ -10,11 +10,12 @@ const initialValues={
   confirmPassword:'',
 }
 function SignUp(props) {
- const{values,errors,handleBlur,handleChange,handleSubmit,handleReset,touched}=useFormik({
+ const{values,errors,handleBlur,handleChange,handleSubmit,touched}=useFormik({
     initialValues: initialValues,
     validationSchema:signUpSchema,
-    onSubmit:(values)=>{
+    onSubmit:(values,action)=>{
       console.log(values);
+      action.resetForm();
     }
   })
     return (
